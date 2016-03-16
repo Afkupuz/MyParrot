@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37E2F7E11C990E0A00FD96F7 /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2F7E01C990E0A00FD96F7 /* PlayingViewController.swift */; };
+		37E2F7E31C9912A400FD96F7 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2F7E21C9912A400FD96F7 /* RecordedAudio.swift */; };
 		37E3954A1C99082500C5A70B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E395491C99082500C5A70B /* AppDelegate.swift */; };
-		37E3954C1C99082500C5A70B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3954B1C99082500C5A70B /* ViewController.swift */; };
+		37E3954C1C99082500C5A70B /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3954B1C99082500C5A70B /* RecordingViewController.swift */; };
 		37E3954F1C99082500C5A70B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E3954D1C99082500C5A70B /* Main.storyboard */; };
 		37E395511C99082500C5A70B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E395501C99082500C5A70B /* Assets.xcassets */; };
 		37E395541C99082500C5A70B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E395521C99082500C5A70B /* LaunchScreen.storyboard */; };
@@ -34,9 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37E2F7E01C990E0A00FD96F7 /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
+		37E2F7E21C9912A400FD96F7 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 		37E395461C99082500C5A70B /* MyParrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyParrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E395491C99082500C5A70B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37E3954B1C99082500C5A70B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37E3954B1C99082500C5A70B /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		37E3954E1C99082500C5A70B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37E395501C99082500C5A70B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E395531C99082500C5A70B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				37E395491C99082500C5A70B /* AppDelegate.swift */,
-				37E3954B1C99082500C5A70B /* ViewController.swift */,
+				37E3954B1C99082500C5A70B /* RecordingViewController.swift */,
+				37E2F7E21C9912A400FD96F7 /* RecordedAudio.swift */,
+				37E2F7E01C990E0A00FD96F7 /* PlayingViewController.swift */,
 				37E3954D1C99082500C5A70B /* Main.storyboard */,
 				37E395501C99082500C5A70B /* Assets.xcassets */,
 				37E395521C99082500C5A70B /* LaunchScreen.storyboard */,
@@ -256,7 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E3954C1C99082500C5A70B /* ViewController.swift in Sources */,
+				37E2F7E31C9912A400FD96F7 /* RecordedAudio.swift in Sources */,
+				37E2F7E11C990E0A00FD96F7 /* PlayingViewController.swift in Sources */,
+				37E3954C1C99082500C5A70B /* RecordingViewController.swift in Sources */,
 				37E3954A1C99082500C5A70B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +492,7 @@
 				37E395701C99082600C5A70B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37E395711C99082600C5A70B /* Build configuration list for PBXNativeTarget "MyParrotTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +501,7 @@
 				37E395731C99082600C5A70B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37E395741C99082600C5A70B /* Build configuration list for PBXNativeTarget "MyParrotUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +510,7 @@
 				37E395761C99082600C5A70B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
