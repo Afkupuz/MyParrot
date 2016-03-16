@@ -12,6 +12,10 @@ import AVFoundation
 class PlayingViewController: UIViewController {
     
 
+    @IBOutlet weak var testSwitch1: UISwitch!
+    @IBOutlet weak var testSwitch2: UISwitch!
+    @IBOutlet weak var echoSwitch: UISwitch!
+    @IBOutlet weak var cathSwitch: UISwitch!
     @IBOutlet weak var echoLabel: UILabel!
     @IBOutlet weak var pitchLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
@@ -38,21 +42,6 @@ class PlayingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func defaultButtons(sender: UIButton) {
-        switch(ButtonType(rawValue: sender.tag)!) {
-        case .Slow:
-            print("1")
-        case .Fast:
-            print("2")
-        case .Vader:
-            print("3")
-        case .Chip:
-            print("4")
-        case .Echo:
-            print("5")
-        }
     }
     
     @IBAction func slideSpeed(sender: AnyObject) {
@@ -86,18 +75,41 @@ class PlayingViewController: UIViewController {
         audioEngine.attachNode(changePitchEffect)
         
         let changeReverbEffect = AVAudioUnitReverb()
-        changeReverbEffect.loadFactoryPreset(.Cathedral)
+        if (cathSwitch.on){
+            changeReverbEffect.loadFactoryPreset(.Cathedral)
+        }
         changeReverbEffect.wetDryMix = echoSlider.value
         audioEngine.attachNode(changeReverbEffect)
         
-        let changeDistortionEffect = AVAudioUnitDistortion()
-        changeDistortionEffect.loadFactoryPreset(.MultiEcho1)
-        audioEngine.attachNode(changeDistortionEffect)
         
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: changeReverbEffect, format: nil)
-        audioEngine.connect(changeReverbEffect, to: changeDistortionEffect, format: nil)
-        audioEngine.connect(changeDistortionEffect, to: audioEngine.outputNode, format: nil)
+        audioEngine.connect(changeReverbEffect, to: audioEngine.outputNode, format: nil)
+        
+        
+        let changeDistortionEffect = AVAudioUnitDistortion()
+        if (echoSwitch.on){
+            testSwitch1.setOn(false, animated: true)
+            testSwitch2.setOn(false, animated: true)
+            changeDistortionEffect.loadFactoryPreset(.MultiEcho1)
+            audioEngine.attachNode(changeDistortionEffect)
+            audioEngine.connect(changeReverbEffect, to: changeDistortionEffect, format: nil)
+            audioEngine.connect(changeDistortionEffect, to: audioEngine.outputNode, format: nil)
+        }
+        if (testSwitch1.on){
+            testSwitch2.setOn(false, animated: true)
+            changeDistortionEffect.loadFactoryPreset(.SpeechGoldenPi)
+            audioEngine.attachNode(changeDistortionEffect)
+            audioEngine.connect(changeReverbEffect, to: changeDistortionEffect, format: nil)
+            audioEngine.connect(changeDistortionEffect, to: audioEngine.outputNode, format: nil)
+        }
+        if (testSwitch2.on){
+            changeDistortionEffect.loadFactoryPreset(.SpeechRadioTower)
+            audioEngine.attachNode(changeDistortionEffect)
+            audioEngine.connect(changeReverbEffect, to: changeDistortionEffect, format: nil)
+            audioEngine.connect(changeDistortionEffect, to: audioEngine.outputNode, format: nil)
+        }
+        
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         try! audioEngine.start()
@@ -115,7 +127,10 @@ class PlayingViewController: UIViewController {
         clearAudio()
     }
     
-    
+    @IBAction func justPlay(sender: AnyObject) {
+        clearAudio()
+        audioPlayer.play()
+    }
 
 }
 
